@@ -1,0 +1,62 @@
+<!-- Bagian Breadcrumb Mulai -->
+<section class="breadcrumb-section set-bg" data-setbg="assets/img/breadcrumb-bg.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb-text">
+                    <h2>Hubungi Kami</h2>
+                    <div class="bt-option">
+                        <a href="/home">Home</a>
+                        <span>Hubungi Kami</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Bagian Breadcrumb Selesai -->
+<!-- Bagian Kontak Mulai -->
+<section class="contact-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-title contact-title">
+                    <span>Hubungi Kami</span>
+                    <h2>HUBUNGI KAMI</h2>
+                </div>
+                <div class="contact-widget">
+                    <div class="cw-text">
+                        <i class="fa fa-map-marker"></i>
+                        <p>Jl. Untung Surapati Blok D No.19, Benua Melayu Darat, Kec. Pontianak Sel., Kota Pontianak, Kalimantan Barat 78113</p>
+                    </div>
+                    <div class="cw-text">
+                        <i class="fa fa-mobile"></i>
+                        <ul>
+                            <li>0822-5571-9988</li>
+                        </ul>
+                    </div>
+                    <div class="cw-text email">
+                        <i class="fa fa-envelope"></i>
+                        <p [innerHTML]="'alvarogym@gmail.com'"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="leave-comment">
+                    <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+                      <input type="text" id="name" placeholder="Nama" required [(ngModel)]="name" name="name" #nameField="ngModel">
+                      <input type="email" id="email" placeholder="Email" required [(ngModel)]="email" name="email" #emailField="ngModel">
+                      <input type="text" id="website" placeholder="Situs Web" [(ngModel)]="website" name="website">
+                      <textarea id="comment" placeholder="Komentar" required [(ngModel)]="comment" name="comment" #commentField="ngModel"></textarea>
+                      <button type="submit" [disabled]="!contactForm.form.valid">Kirim</button>
+                    </form>
+                  </div>
+                  
+            </div>
+        </div>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8170759070854!2d109.346154!3d-0.045252999999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d59ba5daaf0c9%3A0xdfc5be95a376690!2sALVARO%20GYM!5e0!3m2!1sen!2sid!4v1723541045574!5m2!1sen!2sid" height="550" style="border:0;" allowfullscreen="" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+<!-- Bagian Kontak Selesai -->

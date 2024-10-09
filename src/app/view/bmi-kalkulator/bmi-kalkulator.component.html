@@ -1,0 +1,105 @@
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="assets/img/breadcrumb-bg.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb-text">
+                    <h2>BMI Kalkulator</h2>
+                    <div class="bt-option">
+                        <a href="/home">Home</a>
+                        <span>BMI Kalkulator</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Bagian Kalkulator BMI Mulai -->
+<section class="bmi-calculator-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-title chart-title">
+                    <span>Periksa Tubuh Anda</span>
+                    <h2>DIAGRAM KALKULATOR BMI</h2>
+                </div>
+                <div class="chart-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>BMI</th>
+                                <th>STATUS BERAT BADAN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="point">Di bawah 18.5</td>
+                                <td>Kekurangan Berat Badan</td>
+                            </tr>
+                            <tr>
+                                <td class="point">18.5 - 24.9</td>
+                                <td>Sehat</td>
+                            </tr>
+                            <tr>
+                                <td class="point">25.0 - 29.9</td>
+                                <td>Kelebihan Berat Badan</td>
+                            </tr>
+                            <tr>
+                                <td class="point">30.0 dan Lebih</td>
+                                <td>Obesitas</td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th>Hasil</th>
+                                <th>
+                                    <ng-container *ngIf="bmi; else noBmi">
+                                        {{ bmi }} ({{ bmiStatus }})
+                                    </ng-container>
+                                    <ng-template #noBmi>
+                                        -
+                                    </ng-template>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="section-title chart-calculate-title">
+                    <span>Periksa Tubuh Anda</span>
+                    <h2>HITUNG BMI ANDA</h2>
+                </div>
+                <div class="chart-calculate-form">
+                    <p>Hitung BMI Anda untuk memahami status kesehatan Anda lebih baik. Dengan mengetahui BMI, Anda dapat mengevaluasi apakah berat badan Anda berada dalam kisaran yang sehat atau tidak. Masukkan tinggi badan, berat badan, usia, dan jenis kelamin Anda untuk mendapatkan hasil kalkulasi BMI yang akurat.</p>
+                    <form (ngSubmit)="calculateBMI()">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input type="number" [(ngModel)]="height" name="height" placeholder="Tinggi / cm" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" [(ngModel)]="weight" name="weight" placeholder="Berat / kg" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" [(ngModel)]="age" name="age" placeholder="Usia" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <select [(ngModel)]="gender" name="gender" required>
+                                    <option disabled selected>Jenis Kelamin</option>
+                                    <option value="pria">Pria</option>
+                                    <option value="wanita">Wanita</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-12">
+                                <button type="submit">Hitung</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Bagian Kalkulator BMI Selesai -->

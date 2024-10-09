@@ -1,0 +1,65 @@
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="assets/img/breadcrumb-bg.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb-text">
+                    <h2>{{ selectedMenuTitle }}</h2>
+                    <div class="bt-option">
+                        <a href="/home">Home</a>
+                        <span>{{ selectedMenuTitle }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- ChoseUs Section Begin -->
+<section class="choseus-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div (click)="selectMenu('Profile')" [ngClass]="{'menu-aktif': selectedMenu === 'Profile', 'cs-item': selectedMenu !== 'Profile'}">
+                    <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+                    <h4>Profile</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div (click)="selectMenu('Membership')" [ngClass]="{'menu-aktif': selectedMenu === 'Membership', 'cs-item': selectedMenu !== 'Membership'}">
+                    <i class="fa fa-id-card-o fa-3x" aria-hidden="true"></i>
+                    <h4>Membership</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div (click)="selectMenu('Trainer')" [ngClass]="{'menu-aktif': selectedMenu === 'Trainer', 'cs-item': selectedMenu !== 'Trainer'}">
+                    <i class="flaticon-002-dumbell"></i>
+                    <h4>Trainer</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div (click)="selectMenu('Riwayat')" [ngClass]="{'menu-aktif': selectedMenu === 'Riwayat', 'cs-item': selectedMenu !== 'Riwayat'}">
+                    <i class="fa fa-history fa-3x" aria-hidden="true"></i>
+                    <h4>Riwayat</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ChoseUs Section End -->
+
+<!-- About US Section Begin -->
+<section class="aboutus-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 p-0">
+                <app-profile *ngIf="selectedMenu === 'Profile'"></app-profile>
+                <app-membership *ngIf="selectedMenu === 'Membership'"></app-membership>
+                <app-trainer *ngIf="selectedMenu === 'Trainer'"></app-trainer>
+                <app-riwayat *ngIf="selectedMenu === 'Riwayat'"></app-riwayat>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About US Section End -->

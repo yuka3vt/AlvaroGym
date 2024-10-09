@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "allowedCommonJsDependencies": ["sweetalert2"],
             "outputPath": "dist/alvaro-gym",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -21,21 +22,38 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
+              "src/favicon.icon",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/font-awesome.min.css",
+              "src/assets/css/flaticon.css",
+              "src/assets/css/owl.carousel.min.css",
+              "src/assets/css/barfiller.css",
+              "src/assets/css/magnific-popup.css",
+              "src/assets/css/slicknav.min.css",
+              "src/assets/css/style.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery-3.3.1.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/jquery.magnific-popup.min.js",
+              "src/assets/js/masonry.pkgd.min.js",
+              "src/assets/js/jquery.barfiller.js",
+              "src/assets/js/jquery.slicknav.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/js/main.js"             
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "1mb",
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -91,5 +109,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "78d6dea6-7c7d-4000-89d8-95e607a6eb8a"
   }
 }

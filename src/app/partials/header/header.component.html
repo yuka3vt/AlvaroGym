@@ -1,0 +1,74 @@
+<!-- Offcanvas Menu Section Begin -->
+<div class="offcanvas-menu-overlay"></div>
+<div class="offcanvas-menu-wrapper">
+  <div class="canvas-close">
+    <i class="fa fa-close"></i>
+  </div>
+  <nav class="canvas-menu mobile-menu">
+    <ul>
+      <li [ngClass]="{'active': isActive('/home')}"><a href="/home">Home</a></li>
+      <li [ngClass]="{'active': isActive('/blog')}"><a href="/blog">Blog</a></li>
+      <li [ngClass]="{'active': isActive('/hubungi')}"><a href="/hubungi">Kontak</a></li>
+      <li [ngClass]="{'active': isActive('/tentang-kami')}"><a href="/tentang-kami">Tentang Kami</a></li>
+      <li [ngClass]="{'active': isActive('/bmi-kalkulator')}"><a href="/bmi-kalkulator">Bmi Kalkulator</a></li>
+    </ul>
+  </nav>
+  <div id="mobile-menu-wrap"></div>
+  <ng-container *ngIf="authService.isLoggedIn(); else logoutMobile">
+    <p class="mt-3">
+      <a class="authMobile" href="/profil">Profil - {{ userName || 'User' }}</a>
+    </p>
+    <p>
+      <a class="authMobile" href="#" (click)="onLogout()">Logout</a>
+    </p>
+  </ng-container>
+  <ng-template #logoutMobile>
+    <a class="authMobile mt-3" href="/sign-in"><i class="fa fa fa-sign-in" aria-hidden="true"></i> Sign-In</a>
+  </ng-template>
+</div>
+<!-- Offcanvas Menu Section End -->
+<!-- Header Section Begin -->
+<header class="header-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="logo">
+          <a href="/home">
+            <img src="assets/img/logo.png" alt="">
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <nav class="nav-menu">
+          <ul>
+            <li [ngClass]="{'active': isActive('/home')}"><a href="/home">Home</a></li>
+            <li [ngClass]="{'active': isActive('/blog')}"><a href="/blog">Blog</a></li>
+            <li [ngClass]="{'active': isActive('/hubungi')}"><a href="/hubungi">Kontak</a></li>
+            <li [ngClass]="{'active': isActive('/tentang-kami')}"><a href="/tentang-kami">Tentang Kami</a></li>
+            <li [ngClass]="{'active': isActive('/bmi-kalkulator')}"><a href="/bmi-kalkulator">Bmi Kalkulator</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-lg-3 d-flex justify-content-end">
+        <div class="top-option">
+          <ng-container *ngIf="authService.isLoggedIn(); else loggedOut">
+            <div class="custom-dropdown">
+              <a class="authMenu d-flex align-items-center" (click)="toggleDropdown()" style="color: #fff;">{{ userName || '' }}  <i class="ml-3 fa fa-user-circle-o fa-2x" aria-hidden="true"></i></a>
+              <div class="custom-dropdown-menu" [ngClass]="{'show': dropdownOpen}">
+                <a class="custom-dropdown-item" href="/profil">Profil Saya</a>
+                <a class="custom-dropdown-item" href="#" (click)="onLogout()">Logout <i class="fa fa-sign-in ml-3" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #loggedOut>
+            <a class="d-flex align-items-center authMenu" href="/sign-in">Sign-In<i class="ml-3 fa fa-sign-in fa-2x" aria-hidden="true"></i></a>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="canvas-open">
+      <i class="fa fa-bars"></i>
+    </div>
+  </div>
+</header>
+<!-- Header End -->

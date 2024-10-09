@@ -1,0 +1,55 @@
+<!-- Blog Details Hero Section Begin -->
+<section class="blog-details-hero" [ngStyle]="{'background-image': 'url(' + (blog?.image || 'assets/img/about-us.jpg') + ')'}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 p-0 m-auto">
+                <div class="bh-text">
+                    <h3>{{ blog?.title }}</h3>
+                    <ul>
+                        <li>by {{ blog?.user?.username }}</li>
+                        <li>{{ blog?.created_at | date:'d MMMM yyyy' }}</li>
+                        <li>{{ blog?.category?.nama }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Details Hero Section End -->
+
+<!-- Blog Details Section Begin -->
+<section class="blog-details-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 p-0 m-auto">
+                <div class="blog-details-text">
+                    <div class="blog-details-title" [innerHTML]="blog?.content">
+                    </div>
+                    <div class="blog-details-tag-share">
+                        <div class="tags">
+                            <a [routerLink]="['/blog']" [queryParams]="{ kategori: blog?.category?.slug }">{{ blog?.category?.nama }}</a>
+                        </div>
+                    </div>
+                    <div class="blog-details-author">
+                        <div class="ba-pic">
+                            <img [src]="blog?.user?.image ? blog?.user?.image : 'assets/img/coach/coach-default.jpg'" alt="Coach Image">
+                        </div>
+                        <div class="ba-text">
+                            <h5>{{ blog?.user?.nama }} ({{ blog?.user?.username }})</h5>
+                            <p>{{ blog?.user?.telepon }}</p>
+                            <p>{{ blog?.user?.email }}</p>
+                            <div class="bp-social">
+                                <a><i class="fa fa-facebook"></i></a>
+                                <a><i class="fa fa-twitter"></i></a>
+                                <a><i class="fa fa-google-plus"></i></a>
+                                <a><i class="fa fa-instagram"></i></a>
+                                <a><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Details Section End -->
